@@ -133,3 +133,35 @@ forge build
 - ```bash
   forge test --mt test_name -vvv
   ```
+
+# Etherscan Explorers
+
+## Deploy and Verify
+
+### Eth Sepolia
+
+```
+forge create --rpc-url eth_sepolia --private-key $PRIVATE_KEY src/NFTCollectionFactory.sol:NFTCollectionFactory \
+ --constructor-args $(cast abi-encode --packed "constructor(address)" <ARGS_HERE>) \
+ --verify --verifier blockscout --verifier-url https://sepolia.etherscan.io/api?
+```
+
+# Blockscout explorers
+
+## Deploy and Verify
+
+### Base Sepolia
+
+```
+forge create --rpc-url base_sepolia --private-key $PRIVATE_KEY src/NFTCollectionFactory.sol:NFTCollectionFactory \
+ --constructor-args $(cast abi-encode --packed "constructor(address)" <ARGS_HERE>) \
+ --verify --verifier blockscout --verifier-url https://sepolia.etherscan.io/api?
+```
+
+### Optimism Sepolia
+
+```
+forge create --rpc-url optimism_sepolia --private-key $PRIVATE_KEY src/NFTCollectionFactory.sol:NFTCollectionFactory \
+ --constructor-args $(cast abi-encode --packed "constructor(address)" <ARGS_HERE>) \
+ --verify --verifier blockscout --verifier-url https://optimism-sepolia.blockscout.com/api?
+```
